@@ -109,6 +109,25 @@ Il pulsante *Indietro* funziona perché ogni passo lascia un resoconto di com'er
 la configurazione prima: disfarlo è quindi sempre possibile, a qualsiasi
 profondità.
 
+## Installazione
+
+I pacchetti già compilati si trovano nella pagina delle
+[release](../../releases). Per macOS il pacchetto è universale, quindi vale
+sia per Apple Silicon sia per Intel.
+
+L'applicazione è **autofirmata**, non firmata con un certificato Apple a
+pagamento: al primo avvio macOS la blocca. Per aprirla comunque, fai clic
+destro sull'icona e scegli *Apri*, poi conferma nella finestra che compare.
+In alternativa, da terminale:
+
+```bash
+xattr -dr com.apple.quarantine "/Applicazioni/Macchina di Turing.app"
+```
+
+È la normale protezione di Gatekeeper verso le applicazioni distribuite fuori
+dall'App Store, e non dice nulla sul contenuto del programma: il codice è
+tutto qui, e puoi compilartelo da solo seguendo la sezione successiva.
+
 ## Compilazione
 
 Servono [Go](https://go.dev) 1.25 o superiore e la riga di comando di Wails v2:

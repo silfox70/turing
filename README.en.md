@@ -109,6 +109,23 @@ as the machine walks.
 *Indietro* works because every step leaves behind a record of the
 configuration as it was: undoing is therefore always possible, at any depth.
 
+## Installing
+
+Prebuilt packages are on the [releases](../../releases) page. The macOS
+package is universal, so it runs on both Apple Silicon and Intel.
+
+The application is **self-signed**, not signed with a paid Apple certificate,
+so macOS blocks it on first launch. To open it anyway, right-click the icon
+and choose *Open*, then confirm in the dialog. From the terminal:
+
+```bash
+xattr -dr com.apple.quarantine "/Applications/Macchina di Turing.app"
+```
+
+This is the usual Gatekeeper protection against applications distributed
+outside the App Store, and says nothing about what the program contains: the
+source is all here, and you can build it yourself following the next section.
+
 ## Building
 
 You need [Go](https://go.dev) 1.25 or later and the Wails v2 command line:
