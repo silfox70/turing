@@ -1,0 +1,13 @@
+{
+  "$schema": "https://wails.io/schemas/config.v2.json",
+  "name": "Macchina di Turing",
+  "outputfilename": "turing",
+  "frontend:install": "",
+  "frontend:build": "",
+  "frontend:dev:watcher": "",
+  "frontend:dev:serverUrl": "",
+  "author": {
+    "name": "silfox70",
+    "email": "75389270+silfox70@users.noreply.github.com"
+  }
+}

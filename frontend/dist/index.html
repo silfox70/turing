@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Macchina di Turing</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>Macchina di Turing</h1>
+  <span id="esito" class="esito">pronta</span>
+</header>
+
+<main>
+
+  <section id="pannello-sinistro">
+
+    <div class="riquadro">
+      <label for="sorgente">Programma</label>
+      <textarea id="sorgente" spellcheck="false" rows="14"></textarea>
+      <p id="errore" class="errore"></p>
+    </div>
+
+    <div class="riquadro">
+      <label for="ingresso">Nastro iniziale</label>
+      <input id="ingresso" type="text" value="1011" spellcheck="false">
+      <div class="pulsanti">
+        <button id="btn-carica" class="primario">Carica</button>
+        <button id="btn-azzera">Azzera</button>
+      </div>
+    </div>
+
+    <div class="riquadro">
+      <label>Tavola delle regole</label>
+      <table id="tavola">
+        <thead>
+          <tr><th>stato</th><th>legge</th><th>scrive</th><th>muove</th><th>nuovo</th></tr>
+        </thead>
+        <tbody id="tavola-corpo"></tbody>
+      </table>
+    </div>
+
+  </section>
+
+  <section id="pannello-destro">
+
+    <div class="misure">
+      <div class="misura"><span class="etichetta">Stato</span><span id="m-stato" class="valore">—</span></div>
+      <div class="misura"><span class="etichetta">Posizione</span><span id="m-pos" class="valore">0</span></div>
+      <div class="misura"><span class="etichetta">Passi</span><span id="m-passi" class="valore">0</span></div>
+      <div class="misura"><span class="etichetta">Nastro</span><span id="m-nastro" class="valore mono">—</span></div>
+    </div>
+
+    <div class="riquadro nastro-riquadro">
+      <div class="testina" aria-hidden="true">▼</div>
+      <div id="nastro" class="nastro"></div>
+      <div id="indici" class="indici"></div>
+    </div>
+
+    <div class="comandi">
+      <button id="btn-indietro" title="Disfa l'ultimo passo">◀ Indietro</button>
+      <button id="btn-passo" class="primario" title="Esegui un passo">Passo ▶</button>
+      <button id="btn-avvia" title="Esecuzione continua">Avvia</button>
+      <button id="btn-corri" title="Esegui fino all'arresto senza animazione">Corri fino in fondo</button>
+      <label for="velocita">Velocità</label>
+      <input id="velocita" type="range" min="1" max="10" step="1" value="5">
+    </div>
+
+    <div class="riquadro grafo-riquadro">
+      <label>Grafo degli stati</label>
+      <div id="grafo"></div>
+      <p id="legenda" class="legenda"></p>
+    </div>
+
+    <div class="riquadro">
+      <label>Ultimi passi</label>
+      <div id="registro" class="registro mono"></div>
+    </div>
+
+  </section>
+
+</main>
+
+<script type="module" src="main.js"></script>
+</body>
+</html>

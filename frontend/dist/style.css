@@ -1,0 +1,346 @@
+:root {
+  --fondo: #f6f5f1;
+  --superficie: #ffffff;
+  --superficie-2: #eceae3;
+  --bordo: #d7d4ca;
+  --testo: #23231f;
+  --testo-2: #6a685f;
+  --accento: #1d6fa8;
+  --accento-fondo: #e2eff8;
+  --ok: #2c7a4b;
+  --attenzione: #9a6212;
+  --errore: #a33028;
+  --raggio: 8px;
+  --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fondo: #1c1c1a;
+    --superficie: #262623;
+    --superficie-2: #313029;
+    --bordo: #44433d;
+    --testo: #e6e4dc;
+    --testo-2: #a09e94;
+    --accento: #6fb3e0;
+    --accento-fondo: #1b3d53;
+    --ok: #7dc496;
+    --attenzione: #e0b166;
+    --errore: #e08a80;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--testo);
+  background: var(--fondo);
+  -webkit-font-smoothing: antialiased;
+  user-select: none;
+}
+
+header {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  padding: 14px 20px;
+  border-bottom: 0.5px solid var(--bordo);
+}
+
+h1 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.esito {
+  font-size: 13px;
+  color: var(--testo-2);
+}
+
+.esito.ferma-ok { color: var(--ok); }
+.esito.ferma-ko { color: var(--attenzione); }
+
+main {
+  display: grid;
+  grid-template-columns: 340px minmax(0, 1fr);
+  gap: 16px;
+  padding: 16px 20px 24px;
+  align-items: start;
+}
+
+#pannello-sinistro,
+#pannello-destro {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 0;
+}
+
+.riquadro {
+  background: var(--superficie);
+  border: 0.5px solid var(--bordo);
+  border-radius: 12px;
+  padding: 12px 14px;
+}
+
+label {
+  display: block;
+  font-size: 12px;
+  color: var(--testo-2);
+  margin-bottom: 6px;
+}
+
+textarea, input[type="text"] {
+  width: 100%;
+  padding: 8px 10px;
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--testo);
+  background: var(--superficie-2);
+  border: 0.5px solid var(--bordo);
+  border-radius: var(--raggio);
+  resize: vertical;
+  user-select: text;
+}
+
+textarea:focus, input[type="text"]:focus {
+  outline: none;
+  border-color: var(--accento);
+  box-shadow: 0 0 0 2px var(--accento-fondo);
+}
+
+.pulsanti {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+button {
+  font-family: inherit;
+  font-size: 13px;
+  color: var(--testo);
+  background: var(--superficie);
+  border: 0.5px solid var(--bordo);
+  border-radius: var(--raggio);
+  padding: 7px 14px;
+  cursor: pointer;
+}
+
+button:hover:not(:disabled) { background: var(--superficie-2); }
+button:active:not(:disabled) { transform: scale(0.98); }
+button:disabled { opacity: 0.4; cursor: default; }
+
+button.primario {
+  color: var(--accento);
+  border-color: var(--accento);
+  background: var(--accento-fondo);
+}
+
+.errore {
+  margin: 8px 0 0;
+  min-height: 18px;
+  font-size: 12px;
+  font-family: var(--mono);
+  color: var(--errore);
+  white-space: pre-line;
+  user-select: text;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--mono);
+  font-size: 13px;
+}
+
+th {
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--testo-2);
+  text-align: center;
+  padding: 4px 6px;
+  border-bottom: 0.5px solid var(--bordo);
+}
+
+td {
+  text-align: center;
+  padding: 3px 6px;
+}
+
+tr.prossima td {
+  background: var(--accento-fondo);
+  color: var(--accento);
+}
+
+tr.prossima td:first-child { border-radius: var(--raggio) 0 0 var(--raggio); }
+tr.prossima td:last-child { border-radius: 0 var(--raggio) var(--raggio) 0; }
+
+.misure {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.misura {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  background: var(--superficie-2);
+  border-radius: var(--raggio);
+  padding: 8px 12px;
+  min-width: 0;
+}
+
+.misura .etichetta {
+  font-size: 11px;
+  color: var(--testo-2);
+}
+
+.misura .valore {
+  font-size: 17px;
+  font-family: var(--mono);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mono { font-family: var(--mono); }
+
+.nastro-riquadro {
+  overflow: hidden;
+  padding-top: 6px;
+}
+
+.testina {
+  text-align: center;
+  color: var(--accento);
+  font-size: 15px;
+  line-height: 1;
+  height: 16px;
+}
+
+.nastro {
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+}
+
+.cella {
+  flex: 0 0 auto;
+  width: 34px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--mono);
+  font-size: 16px;
+  background: var(--superficie-2);
+  border: 0.5px solid var(--bordo);
+  border-radius: var(--raggio);
+}
+
+.cella.bianca { color: var(--testo-2); }
+
+.cella.sotto-testina {
+  border: 2px solid var(--accento);
+  background: var(--accento-fondo);
+  color: var(--accento);
+}
+
+.indici {
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+  margin-top: 3px;
+}
+
+.indice {
+  flex: 0 0 auto;
+  width: 34px;
+  text-align: center;
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--testo-2);
+}
+
+.comandi {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.comandi label { margin: 0 0 0 6px; }
+
+.comandi input[type="range"] { flex: 1 1 90px; min-width: 80px; }
+
+.grafo-riquadro { min-height: 220px; }
+
+#grafo svg { display: block; width: 100%; height: auto; }
+
+.nodo-cerchio {
+  fill: var(--superficie-2);
+  stroke: var(--bordo);
+  stroke-width: 1;
+}
+
+.nodo-cerchio.attivo {
+  fill: var(--accento-fondo);
+  stroke: var(--accento);
+  stroke-width: 2;
+}
+
+.nodo-testo {
+  font-family: var(--mono);
+  font-size: 13px;
+  fill: var(--testo);
+  text-anchor: middle;
+  dominant-baseline: central;
+}
+
+.nodo-testo.attivo { fill: var(--accento); }
+
+.nodo-grande { font-size: 44px; }
+
+.arco {
+  fill: none;
+  stroke: var(--bordo);
+  stroke-width: 1;
+}
+
+.arco.attivo { stroke: var(--accento); stroke-width: 2; }
+
+.arco-etichetta {
+  font-family: var(--mono);
+  font-size: 10px;
+  fill: var(--testo-2);
+  text-anchor: middle;
+}
+
+.arco-etichetta.attivo { fill: var(--accento); }
+
+.marcatore { fill: var(--bordo); }
+.marcatore.attivo { fill: var(--accento); }
+
+.legenda {
+  margin: 8px 0 0;
+  font-size: 11px;
+  color: var(--testo-2);
+  text-align: center;
+}
+
+.registro {
+  font-size: 12px;
+  color: var(--testo-2);
+  line-height: 1.6;
+  min-height: 20px;
+  user-select: text;
+}
