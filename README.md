@@ -118,10 +118,11 @@ sia per Apple Silicon sia per Intel.
 L'applicazione è **autofirmata**, non firmata con un certificato Apple a
 pagamento: al primo avvio macOS la blocca. Per aprirla comunque, fai clic
 destro sull'icona e scegli *Apri*, poi conferma nella finestra che compare.
-In alternativa, da terminale:
+In alternativa, da terminale, sul pacchetto appena scaricato (il percorso
+reale è `/Applications`, anche se il Finder lo mostra come "Applicazioni"):
 
 ```bash
-xattr -dr com.apple.quarantine "/Applicazioni/Macchina di Turing.app"
+xattr -dr com.apple.quarantine ~/Downloads/"Macchina di Turing.app"
 ```
 
 È la normale protezione di Gatekeeper verso le applicazioni distribuite fuori

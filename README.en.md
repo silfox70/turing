@@ -116,10 +116,10 @@ package is universal, so it runs on both Apple Silicon and Intel.
 
 The application is **self-signed**, not signed with a paid Apple certificate,
 so macOS blocks it on first launch. To open it anyway, right-click the icon
-and choose *Open*, then confirm in the dialog. From the terminal:
+and choose *Open*, then confirm in the dialog. From the terminal, on the freshly downloaded package:
 
 ```bash
-xattr -dr com.apple.quarantine "/Applications/Macchina di Turing.app"
+xattr -dr com.apple.quarantine ~/Downloads/"Macchina di Turing.app"
 ```
 
 This is the usual Gatekeeper protection against applications distributed
